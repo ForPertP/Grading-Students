@@ -22,3 +22,32 @@ vector<int> gradingStudents(vector<int> grades)
     
     return grades;    
 }
+
+vector<int> gradingStudents2(vector<int> grades)
+{
+    vector<int> result;
+
+    std::for_each(grades.begin(), grades.end(),
+        [&result](auto& score)
+        {
+            int round = 0;
+            int temp = score % 5;
+            if (temp != 0)
+                round = 5 - temp;
+
+            if (score > 37)
+            {
+                if (round < 3)
+                    result.push_back(score + round);
+                else
+                    result.push_back(score);
+            }
+            else
+            {
+                result.push_back(score);
+            }
+        }
+    );
+
+    return result;
+}
