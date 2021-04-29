@@ -27,7 +27,7 @@ vector<int> gradingStudents2(vector<int> grades)
 {
     vector<int> result;
 
-    std::for_each(grades.begin(), grades.end(),
+    std::for_each(grades.cbegin(), grades.cend(),
         [&result](auto& score)
         {
             int round = 0;
